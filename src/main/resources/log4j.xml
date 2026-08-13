@@ -1,22 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-<!--
-  mule-account-api | default-branch: main | SCENARIO: 1 appender, OLD pattern
-  Expected: SUCCESS — pattern replaced
--->
+<!-- mule-account-api | main | OLD pattern x1 | Expected: SUCCESS -->
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
-
     <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
-        <param name="File"           value="${app.home}/logs/mule-account-api.log"/>
-        <param name="MaxFileSize"    value="10MB"/>
-        <param name="MaxBackupIndex" value="10"/>
+        <param name="File" value="${app.home}/logs/mule-account-api.log"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d %-5p [%t] %c - %m%n"/>
+            <PatternLayout pattern="%d %-5p [%t] %c - %m%n"/>
         </layout>
     </appender>
-
-    <root>
-        <priority value="INFO"/>
-        <appender-ref ref="FILE"/>
-    </root>
+    <root><priority value="INFO"/><appender-ref ref="FILE"/></root>
 </log4j:configuration>
